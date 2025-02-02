@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .title {
+      color: #ff69b4; 
+      font-family: "楷体", cursive;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    }
+
+    .heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 80px;
+      background: #ff3f3f;
+      border-radius: 50px 50px 0 0;
+    }
+
+    .heart:before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.2); }
+      50% { transform: scale(1.1); }
+      70% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      display: none;
+      position: absolute;
+      top: 60%;
+    }
+  </style>
+</head>
+<body>
+  <!-- 修改后的标题（仅文字，无符号） -->
+  <div class="title">最爱兔兔宝宝</div>
+  <!-- 核心跳动爱心保留 -->
+  <div class="heart" onclick="showMessage()"></div>
+  <div class="message" id="msg">你是我永远的小公主！</div>
+
+  <script>
+    function showMessage() {
+      const msg = document.getElementById('msg');
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 2000);
+    }
+  </script>
+</body>
+</html>
